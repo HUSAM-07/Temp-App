@@ -1,101 +1,98 @@
 import Image from "next/image";
+import { DotPattern } from "@/components/magicui/dot-pattern";
+import { BoxReveal } from "@/components/magicui/box-reveal";
+import Marquee from "@/components/magicui/marquee";
 
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="https://nextjs.org/icons/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+  const agendaItems = [
+    { number: "01", title: "Adding leisure activities", description: "to the activity room above the cafeteria." },
+    { number: "02", title: "Cheaper, affordable food", description: "in university - bhukkad is too expensive!!" },
+    { number: "03", title: "More parking spaces", description: "for day scholars." },
+    { number: "04", title: "Increased student club", description: "& association autonomy." },
+    { number: "05", title: "Change in mess contract", description: "to improved services, or severing mess fee from hostel fee." },
+    { number: "06", title: "Gym facilities", description: "in the sports complex." },
+    { number: "07", title: "Transport services", description: "after sports practice for day scholars. Or centralized shuttle service for both day scholar and hosteller." },
+    { number: "08", title: "Provide necessary sports equipment", description: "Instead of students using their own equipment for camp and training." },
+    { number: "09", title: "Renovation of remaining washrooms", description: "to the same quality as the one near the sports complex." },
+    { number: "10", title: "Extension of in-timings", description: "for girls hostel." }
+  ];
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="https://nextjs.org/icons/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+  const reviews = [
+    { name: "Sivaa", handle: "@siv.xxa", text: "Shams has a clear vision for improving student life on campus." },
+    { name: "Reshma", handle: "@reshma_reddy25", text: "His dedication to addressing student concerns is unmatched." },
+    { name: "Nishit", handle: "@nishit_pareek_30", text: "Shams' leadership skills make him the ideal candidate for Vice President." },
+    { name: "Husam", handle: "@itshu.sam", text: "I trust Shams to represent our interests effectively in the Student Council." },
+  ];
+
+  return (
+    <div className="relative min-h-screen bg-[#F0EFED] font-['Inter'] overflow-hidden">
+      <DotPattern
+        className="absolute inset-0 z-0"
+        width={40}
+        height={40}
+        radius={1}
+        fill="rgba(0,0,0,0.1)"
+      />
+      <div className="relative z-10 flex flex-col min-h-screen p-4 sm:p-6 md:p-8">
+        <header className="flex flex-col sm:flex-row justify-between items-center mb-8 md:mb-16 space-y-4 sm:space-y-0">
           <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
+            src="/bits.png"
+            alt="BITS Logo"
+            width={100}
+            height={40}
+            priority
+            className="w-24 sm:w-auto"
           />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+          <div className="bg-white px-4 py-2 rounded-full text-sm font-bold shadow-sm text-center">
+            <span className="text-[#2B2B88]">Student Council</span> <span className="text-black">Election 2024-25</span>
+          </div>
+        </header>
+
+        <main className="flex-grow flex flex-col items-center justify-center text-center px-2 sm:px-4 md:px-0">
           <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
+            src="/poster.png"
+            alt="Event Poster"
+            width={450}
+            height={300}
+            className="mb-8 md:mb-12 max-w-full h-auto"
           />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+          <div className="bg-white p-4 sm:p-6 md:p-8 rounded-lg shadow-lg w-full max-w-3xl mx-auto border border-gray-200 mb-8">
+            <h2 className="text-xl sm:text-2xl font-bold mb-4 text-black">AGENDA</h2>
+            <BoxReveal>
+              <div className="grid grid-cols-1 gap-4">
+                {agendaItems.map((item, index) => (
+                  <div key={index} className="flex items-start">
+                    <div className="mr-4 text-xl sm:text-2xl font-bold text-gray-300">{item.number}</div>
+                    <div className="text-left">
+                      <h3 className="font-semibold text-black">{item.title}</h3>
+                      <p className="text-sm text-gray-600">{item.description}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </BoxReveal>
+          </div>
+
+          <div className="w-full max-w-3xl mx-auto mb-8">
+            <h2 className="text-xl sm:text-2xl font-bold mb-4 text-black text-center">Why Vote for Shams?</h2>
+            <Marquee className="py-4 sm:py-8 bg-white rounded-lg shadow-lg border border-gray-200" speed={30} pauseOnHover>
+              {reviews.map((review, index) => (
+                <div key={index} className="mx-4 sm:mx-8 px-4 sm:px-6 py-4 sm:py-6 bg-gray-50 rounded-lg shadow flex flex-col justify-between h-40 sm:h-48 w-64 sm:w-80">
+                  <div>
+                    <p className="text-lg sm:text-xl font-bold text-gray-800">{review.name}</p>
+                    <p className="text-xs sm:text-sm text-gray-600 mb-2 sm:mb-4">{review.handle}</p>
+                  </div>
+                  <p className="text-sm sm:text-base font-medium text-gray-800 italic">&quot;{review.text}&quot;</p>
+                </div>
+              ))}
+            </Marquee>
+          </div>
+        </main>
+
+        <footer className="mt-8 md:mt-16 text-center text-xs sm:text-sm text-gray-600">
+          © 2024 BITS Pilani, Dubai Campus. All rights reserved.
+        </footer>
+      </div>
     </div>
   );
 }
