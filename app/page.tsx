@@ -1,7 +1,7 @@
 import Image from "next/image";
-import { DotPattern } from "@/components/magicui/dot-pattern";
 import { BoxReveal } from "@/components/magicui/box-reveal";
 import Marquee from "@/components/magicui/marquee";
+import Ripple from "@/components/magicui/ripple";
 
 export default function Home() {
   const agendaItems = [
@@ -26,12 +26,11 @@ export default function Home() {
 
   return (
     <div className="relative min-h-screen bg-[#F0EFED] font-['Inter'] overflow-hidden">
-      <DotPattern
+      <Ripple 
         className="absolute inset-0 z-0"
-        width={40}
-        height={40}
-        radius={1}
-        fill="rgba(0,0,0,0.1)"
+        mainCircleSize={150}
+        mainCircleOpacity={0.1}
+        numCircles={6}
       />
       <div className="relative z-10 flex flex-col min-h-screen p-4 sm:p-6 md:p-8">
         <header className="flex flex-col sm:flex-row justify-between items-center mb-8 md:mb-16 space-y-4 sm:space-y-0">
